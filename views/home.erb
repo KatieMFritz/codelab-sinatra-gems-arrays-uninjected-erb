@@ -16,7 +16,7 @@
       <h2>Search results</h2>
       <ul>
         <% @games.each do |game| %>
-          <li><%= game.title %></li>
+          <li><img src="<%= game.thumb %>"><%= game.title %> | <a href="http://www.cheapshark.com/redirect.php?dealID=<%=game.cheapest_deal_id %>">$<%= game.cheapest %></a></li>
         <% end %>
       </ul>
     </div>
