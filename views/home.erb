@@ -8,13 +8,15 @@
     <h1>Search Games</h1>
     <div class="searchbox">
       <h2>Search for a game by title</h2>
-      <input type="text" name="title" value="Enter game title">
+      <form class="search">
+        <input type="text" name="title" placeholder="Enter game title">
+      </form>
     </div>
     <div class="results">
       <h2>Search results</h2>
       <ul>
-        <% [ 'Game 1', 'Game 2', 'Game 3' ].each do |game| %>
-          <li class="game <%= game.downcase.gsub(' ','-') %>"><%= game %></li>
+        <% @games.each do |game| %>
+          <li><%= game.title %></li>
         <% end %>
       </ul>
     </div>

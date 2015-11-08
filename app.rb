@@ -1,14 +1,10 @@
 require 'sinatra'
-require 'cat_api'
+require 'cheapshark'
 
-class CatIndustriesApp < Sinatra::Base
+class SearchGames < Sinatra::Base
   get '/' do
+    @games = CheapShark.games(title: params['title'] || ' ')
     erb :home
-  end
-
-  get '/cats' do
-    @pictures = CatAPI.new.get_images(category: 'hats', results_per_page: 100)
-    erb :cats
   end
 
 end
